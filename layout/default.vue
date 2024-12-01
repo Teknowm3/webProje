@@ -27,6 +27,20 @@ import { ref, computed } from "vue";
 import { defineAsyncComponent } from "vue";
 
 // Buton isimleri
+
+
+
+/**
+ * 
+ * 
+ * 
+ *                                                                  Buton isimlerini buradan değiştirebilirsin
+ * 
+ * 
+ */
+
+
+
 const buttons = [
     "Home Search",
     "Footer",
@@ -44,6 +58,17 @@ const buttons = [
 const activeComponent = ref(0);
 
 // Komponentlerin dinamik olarak yüklenmesi
+
+
+/**
+ * 
+ * 
+ * 
+ *                                                                  Componentleri buradan değiştirebilirsin
+ * 
+ * 
+ */
+
 const componentList = [
     defineAsyncComponent(() => import("~/components/homeSearch.vue")),
     defineAsyncComponent(() => import("~/components/footer.vue")),
