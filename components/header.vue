@@ -6,6 +6,29 @@
                 <img src="/logo.png" alt="Fiverr Logo" class="logo" />
             </a>
         </div>
+
+        <div class="search-animated-long">
+            <!-- Overlay that darkens the screen -->
+            <div v-if="isOverlayVisible" class="overlay2"></div>
+
+            <div class="search-bar-package">
+                <form class="search-form dark" id="searchForm" @submit.prevent="onSubmit">
+                    <input type="search" class="long-placeholder" id="searchInput" autocomplete="off"
+                        placeholder="What service are you looking for today?" v-model="searchQuery"
+                        @focus="onSearchFocus" @blur="onSearchBlur" @mouseenter="onInputHover"
+                        @mouseleave="onInputLeave" />
+                    <button class=" submit-button dark-search-button" type="submit">
+                        <img src="/public/search.png" alt="Search Icon" />
+                    </button>
+                    <!-- X button to clear the search input -->
+                    <button v-if="searchQuery && (isInputFocused || isInputHovered)" class="cancel-button" type="button"
+                        @click="clearSearch">
+                        ×
+                    </button>
+                </form>
+            </div>
+        </div>
+
         <!-- Menü -->
         <nav class="nav">
             <ul>
@@ -46,8 +69,8 @@
                         </div>
                     </div>
                 </li>
-                <li @click="openLanguageModal" style="margin-top: -2px;"><a href="#">🌏︎ English</a></li>
-                <li><a href="/header">Become a Seller</a></li>
+                <li @click="openLanguageModal" class="English"><a href="#">🌏︎ English</a></li>
+                <li><a href="/header" style="display: inline;">Become a Seller</a></li>
                 <li><a href="/header">Sign in</a></li>
                 <li><a href="/header" class="nav-join">Joın</a></li>
             </ul>
@@ -96,17 +119,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, type ImgHTMLAttributes } from "vue";
+import { defineComponent, ref } from "vue";
+
+// Tip Tanımlamaları
+type Currency = { name: string; symbol: string };
+type ExploreItem = { title: string; description: string; path: string };
+type FiverrProItem = { title: string; description: string; icon: string; path: string };
 
 export default defineComponent({
     data() {
         return {
             isModalVisible: false,
             activeDropdown: null as string | null, // Hangi dropdown'ın açık olduğunu tutar
-            activeTab: "Language",
-            selectedLanguage: "English",
-            selectedCurrency: "United States Dollar",
-            languages: ["English", "Deutsch", "Español", "Français", "Português", "Italiano", "Nederlands"],
+            activeTab: "Language" as string,
+            selectedLanguage: "English" as string,
+            selectedCurrency: "United States Dollar" as string,
+            languages: ["English", "Deutsch", "Español", "Français", "Português", "Italiano", "Nederlands"] as string[],
             currencies: [
                 { name: "United States Dollar", symbol: "USD - $" },
                 { name: "Euro", symbol: "EUR - €" },
@@ -119,7 +147,7 @@ export default defineComponent({
                 { name: "Malasian Ringgit", symbol: "MYR - MYR" },
                 { name: "Mexican Peso", symbol: "MXN - MX$" },
                 { name: "Pakistani Rupee", symbol: "PKR - PKR" }
-            ],
+            ] as Currency[],
             isExploreDropdownVisible: false,
             exploreItems: [
                 { title: "Answers", description: "Powered by AI, answered by Fiverr freelancers", path: "/answers" },
@@ -130,74 +158,109 @@ export default defineComponent({
                 { title: "Blog", description: "News, information and community stories", path: "/blog" },
                 { title: "Logo Maker", description: "Create your logo instantly", path: "/logo-maker" },
                 { title: "Login", description: "Access your account", path: "/login" }
-            ],
-            // Fiverr Pro Dropdown İçeriği
+            ] as ExploreItem[],
             isFiverrProDropdownVisible: false,
-            // Fiverr Pro content with image paths
             fiverrProItems: [
                 {
                     title: "I'm looking to hire",
                     description: "My team needs vetted freelance talent and a premium business solution.",
-                    icon: '/fiverpro1.png',
-                    path: '/header'
+                    icon: "/fiverpro1.png",
+                    path: "/header"
                 },
                 {
                     title: "I want to offer Pro services",
                     description: "I’d like to work on business projects as a Pro freelancer or agency.",
-                    icon: '/fiverpro2.png', // Another image path
-                    path: '/main'
+                    icon: "/fiverpro2.png", // Another image path
+                    path: "/main"
                 }
-            ],
+            ] as FiverrProItem[],
+            searchQuery: "" as string,
+            isOverlayVisible: false as boolean,
+            isInputFocused: false as boolean,
+            isInputHovered: false as boolean,
         };
     },
     methods: {
-        openLanguageModal() {
+        openLanguageModal(): void {
             this.isModalVisible = true;
         },
-        closeModal() {
+        closeModal(): void {
             this.isModalVisible = false;
         },
-        setActiveTab(tab: string) {
+        setActiveTab(tab: string): void {
             this.activeTab = tab;
         },
-        selectLanguage(language: string) {
+        selectLanguage(language: string): void {
             this.selectedLanguage = language;
         },
-        selectCurrency(currency: string) {
+        selectCurrency(currency: string): void {
             this.selectedCurrency = currency;
         },
-        // Fiverr Pro Dropdown'u Toggle Et
-        toggleFiverrProDropdown() {
+        toggleFiverrProDropdown(): void {
             this.isFiverrProDropdownVisible = !this.isFiverrProDropdownVisible;
         },
-        // Explore Dropdown'u Toggle Et
-        toggleExploreDropdown() {
+        toggleExploreDropdown(): void {
             this.isExploreDropdownVisible = !this.isExploreDropdownVisible;
         },
-        toggleDropdown(dropdown: string) {
+        toggleDropdown(dropdown: string): void {
             this.activeDropdown = this.activeDropdown === dropdown ? null : dropdown;
         },
-        closeDropdown() {
+        closeDropdown(): void {
             this.activeDropdown = null;
         },
+        onSubmit(): void {
+            console.log("Searching for:", this.searchQuery);
+        },
+        onFocus(): void {
+            this.$el.querySelector('input')?.classList.add('focused');
+        },
+        onBlur(): void {
+            this.$el.querySelector('input')?.classList.remove('focused');
+        },
+        onSearchFocus(): void {
+            this.isOverlayVisible = true;
+            this.isInputFocused = true; // Focus olduğunda true yap
+            this.isInputHovered = false; // Hover olmadığını garantile
+        },
+        onSearchBlur(): void {
+            setTimeout(() => {
+                this.isOverlayVisible = false;
+                this.isInputFocused = false; // Focus dışı olduğunda false yap
+            }, 100); // Gecikme ile smooth geçiş sağla
+        },
+        onInputHover(): void {
+            if (!this.isInputFocused) {  // Eğer input focuslanmışsa hover geçersiz
+                this.isInputHovered = true; // Hover durumu true yap
+            }
+        },
+        onInputLeave(): void {
+            this.isInputHovered = false; // Hover dışı olduğunda false yap
+        },
+        clearSearch(): void {
+            this.searchQuery = ""; // Input otomatik olarak temizlenecek
+        },
     },
-    mounted() {
-        // Document click event listener ekle
+    mounted(): void {
         document.addEventListener("click", this.closeDropdown);
     },
-    beforeUnmount() {
-        // Event listener'ı kaldır
+    beforeUnmount(): void {
         document.removeEventListener("click", this.closeDropdown);
     },
+    computed: {
+        isCancelButtonVisible(): boolean {
+            return this.isInputFocused || this.isInputHovered; // Hem focus hem de hover durumunda görünür
+        }
+    }
 });
 </script>
+
 
 <style scoped>
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 151px;
+    padding: 14px 240px;
     padding-bottom: 22.3px;
     background-color: #ffffff;
     color: black;
@@ -209,7 +272,7 @@ export default defineComponent({
 }
 
 .logo {
-    height: 24.3px;
+    height: 27.3px;
 }
 
 .nav ul {
@@ -225,13 +288,11 @@ export default defineComponent({
 .nav a {
     text-decoration: none;
     color: #62646f;
-    /* Varsayılan renk: koyu gri */
     font-weight: bold;
 }
 
 .nav a:hover {
     color: #1dbf73;
-    /* Hover (üstüne gelindiğinde) renk: Fiverr yeşili */
 }
 
 .nav .nav-join {
@@ -338,15 +399,12 @@ export default defineComponent({
 .tab-content .currency-item {
     display: flex;
     flex-direction: column;
-    /* Stack name vertically */
 }
 
 
 .tab-content li:hover {
     background-color: #f0f0f0;
-    /* Add a light gray background on hover */
     width: 100%;
-    /* Ensure it covers from left to right */
 }
 
 .selected {
@@ -365,7 +423,6 @@ export default defineComponent({
     display: inline-block;
     width: 20px;
     margin-left: -12.34px;
-    /* Space where the tick would be */
 }
 
 .divider {
@@ -377,23 +434,18 @@ export default defineComponent({
 
 .currency-name {
     color: #62646f;
-    /* Dark gray for the currency name */
     flex-grow: 1;
     flex: 1;
-    /* Allow space for tick */
 }
 
 .currency-symbol {
     color: #b0b0b0;
     flex: 1;
-    /* Light gray for the currency symbol */
 }
 
 .tab-content ul li:hover {
     background-color: #f5f5f5;
-    /* Gray background on hover */
     width: 100%;
-    /* Ensure it covers from left to right */
 }
 
 .modal-header {
@@ -419,7 +471,6 @@ export default defineComponent({
     background-color: #fafafa;
     border-radius: 0px;
     outline: 8px solid #fafafa;
-    /* Outline ile arka planı büyütme */
 }
 
 .dropdown {
@@ -436,9 +487,7 @@ export default defineComponent({
     max-width: 400px;
     z-index: 1000;
     padding: 10px 0;
-    /* İçeriklere biraz boşluk ekledik */
     display: block;
-    /* Menü öğelerinin alt alta sıralanmasını sağlar */
     margin-left: -15px;
     left: 0;
     margin-top: 10px;
@@ -455,13 +504,9 @@ export default defineComponent({
 
 .dropdown-item p {
     font-weight: normal;
-    /* Normal font */
     color: #62646f;
-    /* Açık gri */
     margin: 5px 0 0 0;
-    /* Üstten biraz boşluk */
     font-size: 13px;
-    /* Daha küçük font boyutu */
 }
 
 .dropdown-item.hover {
@@ -470,9 +515,7 @@ export default defineComponent({
 
 .dropdown-item strong {
     font-weight: bold;
-    /* Kalın font */
     color: black;
-    /* Siyah renkte */
 }
 
 .fiverr-dropdown {
@@ -485,49 +528,39 @@ export default defineComponent({
     cursor: pointer;
     text-decoration: none;
     color: black;
-    /* Siyah renkte sabit kalması için */
     padding: 10px;
     margin-top: -10px;
     border: 1px solid transparent;
     border-radius: 6px;
     transition: all 0.3s;
     align-items: center;
-    /* Dikeyde ortalar */
+    width: 85px;
 }
 
 .nav .fiverr-dropdown-toggle {
     color: black;
-    /* Varsayılan renk yeşil */
     font-weight: bold;
-    /* Varsayılan yazı ağırlığı */
     display: flex;
     align-items: center;
-    /* Dikeyde ortalama */
     justify-content: center;
-    /* Yatayda ortalama */
     gap: 2px;
 }
 
 .nav .fiverr-dropdown-toggle:hover {
     color: black;
-    /* Hover durumunda siyah */
     font-weight: bold;
-    /* Hover durumunda kalın */
 }
 
 .fiverr-dropdown-toggle:hover {
     background-color: #e0e0e0;
     border: 1px solid #e0e0e0;
     color: black;
-    /* Renk değişmesin */
     font-weight: bold;
-    /* Bold olarak kalsın */
 }
 
 .fiverr-dropdown-menu {
     position: absolute;
     top: 27px;
-    /* Menünün açılacağı yerin konumu */
     left: 0;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -535,7 +568,6 @@ export default defineComponent({
     border-radius: 2px;
     z-index: 1000;
     width: 300px;
-    /* Menü genişliği */
     padding: 10px;
 }
 
@@ -554,15 +586,11 @@ export default defineComponent({
     cursor: pointer;
     outline: 1px solid #e0e0e0;
     border-radius: 2px;
-    /* Outline ekle */
     background-color: white;
-    /* Arka plan beyaz olsun */
-
 }
 
 .dropdown-block:hover {
     background-color: #f9f9f9;
-    /* Hover durumunda hafif gri ton */
 }
 
 .dropdown-block strong {
@@ -579,7 +607,6 @@ export default defineComponent({
 
 .icon {
     flex-shrink: 0;
-    /* Resim sıkışmasın */
     margin-right: 10px;
     size: 10px;
 }
@@ -594,7 +621,6 @@ export default defineComponent({
     flex-direction: column;
     flex-grow: 1;
     overflow: hidden;
-    /* Uzun metin taşmasın */
 }
 
 .text strong {
@@ -619,19 +645,156 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:2px;
+    gap: 2px;
+    width: 100%;
 }
 
 .arrow-icon {
     width: 20px;
-    /* Ok simgesinin boyutu */
     height: 20px;
     transition: transform 0.5s ease;
-    /* 1 saniyede dönüş animasyonu */
 }
 
 /* Ok simgesi dönsün, dropdown açıkken */
 .rotate-arrow {
     transform: rotate(180deg);
 }
+
+/** Arama çubuğu  */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.search-animated-long {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding-left: 40px
+}
+
+.search-bar-package {
+    width: 570px;
+
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.long-placeholder {
+    width: 100%;
+    height: 42px;
+    padding: 10px 2px 10px 16px;
+    font-size: 16px;
+    border: 1px solid #d3d3d3;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.search-form .long-placeholder.focused {
+    border-color: #000;
+    outline-color: #000;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.submit-button {
+    width: 50px;
+    height: 42px;
+    background-color: black;
+    /* Siyah arka plan */
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+}
+
+.submit-button img {
+    width: 26px;
+    height: 26px;
+}
+
+.English {
+    margin-top: -2px;
+    width: 88px;
+}
+
+li {
+    display: inline;
+    /* Liste öğelerini yatayda hizala */
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: normal;
+    display: inline;
+    white-space: nowrap;
+}
+
+.overlay2 {
+    position: fixed;
+    top: 86px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+}
+
+.search-form input:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+.cancel-button {
+    position: absolute;
+    right: 57px;
+    top: 51%;
+    transform: translateY(-50%);
+    background-color: #e4e5e7;
+    border: none;
+    border-radius: 50%;
+    color: #7a7d85;
+    font-size: 23px;
+    cursor: pointer;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    pointer-events: auto;
+}
+
+.cancel-button:hover {
+    background-color: #dadbdd;
+}
+
+#searchInput {
+    color: #222325;
+    font-size: 16px;
+}
+
 </style>

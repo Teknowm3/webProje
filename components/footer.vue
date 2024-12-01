@@ -11,54 +11,54 @@
                     <div class="footer-section">
                         <h6>Categories</h6>
                         <ul>
-                            <li><a href="/categories/graphics-design">Graphics & Design</a></li>
-                            <li><a href="/categories/digital-marketing">Digital Marketing</a></li>
-                            <li><a href="/categories/writing-translation">Writing & Translation</a></li>
-                            <li><a href="/categories/video-animation">Video & Animation</a></li>
-                            <li><a href="/categories/music-audio">Music & Audio</a></li>
-                            <li><a href="/categories/programming-tech">Programming & Tech</a></li>
-                            <li><a href="/categories/ai-services">AI Services</a></li>
-                            <li><a href="/categories/consulting">Consulting</a></li>
-                            <li><a href="/categories/data">Data</a></li>
-                            <li><a href="/categories/business">Business</a></li>
-                            <li><a href="/categories/personal-growth">Personal Growth & Hobbies</a></li>
-                            <li><a href="/categories/photography">Photography</a></li>
-                            <li><a href="/categories/finance">Finance</a></li>
-                            <li><a href="/categories/end-to-end-projects">End-to-End Projects</a></li>
-                            <li><a href="/categories/service-catalog">Service Catalog</a></li>
+                            <li><a href="/#">Graphics & Design</a></li>
+                            <li><a href="/#">Digital Marketing</a></li>
+                            <li><a href="/#">Writing & Translation</a></li>
+                            <li><a href="/#">Video & Animation</a></li>
+                            <li><a href="/#">Music & Audio</a></li>
+                            <li><a href="/#">Programming & Tech</a></li>
+                            <li><a href="/#">AI Services</a></li>
+                            <li><a href="/#">Consulting</a></li>
+                            <li><a href="/#">Data</a></li>
+                            <li><a href="/#">Business</a></li>
+                            <li><a href="/#">Personal Growth & Hobbies</a></li>
+                            <li><a href="/#">Photography</a></li>
+                            <li><a href="/#">Finance</a></li>
+                            <li><a href="/#">End-to-End Projects</a></li>
+                            <li><a href="/#">Service Catalog</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h6>For Clients</h6>
                         <ul>
-                            <li><a href="/how-fiverr-works">How Fiverr Works</a></li>
-                            <li><a href="/customer-success-stories">Customer Success Stories</a></li>
-                            <li><a href="/trust-safety">Trust & Safety</a></li>
-                            <li><a href="/quality-guide">Quality Guide</a></li>
+                            <li><a href="/#">How Fiverr Works</a></li>
+                            <li><a href="/#">Customer Success Stories</a></li>
+                            <li><a href="/#">Trust & Safety</a></li>
+                            <li><a href="/#">Quality Guide</a></li>
                             <li class="fiverr-group">
-                                <a href="/learn" class="main-link">Fiverr Learn</a>
-                                <a href="/learn" class="sub-link">Online Courses</a>
+                                <a href="/#" class="main-link">Fiverr Learn</a>
+                                <a href="/#" class="sub-link">Online Courses</a>
                             </li>
-                            <li><a href="/fiverr-guides">Fiverr Guides</a></li>
-                            <li><a href="/fiverr-answers">Fiverr Answers</a></li>
+                            <li><a href="/#">Fiverr Guides</a></li>
+                            <li><a href="/#">Fiverr Answers</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h6>For Freelancers</h6>
                         <ul>
-                            <li><a href="/become-fiverr-freelancer">Become a Fiverr Freelancer</a></li>
-                            <li><a href="/become-agency">Become an Agency</a></li>
-                            <li><a href="/kickstart">Kickstart</a></li>
-                            <li><a href="/community-hub">Community Hub</a></li>
-                            <li><a href="/forum">Forum</a></li>
-                            <li><a href="/events">Events</a></li>
+                            <li><a href="/#">Become a Fiverr Freelancer</a></li>
+                            <li><a href="/#">Become an Agency</a></li>
+                            <li><a href="/#">Kickstart</a></li>
+                            <li><a href="/#">Community Hub</a></li>
+                            <li><a href="/#">Forum</a></li>
+                            <li><a href="/#">Events</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h6>Business Solutions</h6>
                         <ul>
-                            <li><a href="/fiverr-pro">Fiverr Pro</a></li>
-                            <li><a href="/project-management-service">Project Management Service</a></li>
+                            <li><a href="/#">Fiverr Pro</a></li>
+                            <li><a href="/#">Project Management Service</a></li>
                             <li class="fiverr-group">
                                 <a href="/#" class="main-link">ClearVoice</a>
                                 <a href="/#" class="sub-link">Content Marketing</a>
@@ -71,25 +71,25 @@
                                 <a href="/#" class="main-link">AutoDS</a>
                                 <a href="/#" class="sub-link">Dropshipping Tool</a>
                             </li>
-                            <li><a href="/fiverr-logo-maker">Fiverr Logo Maker</a></li>
-                            <li><a href="/contact-sales">Contact Sales</a></li>
+                            <li><a href="/#">Fiverr Logo Maker</a></li>
+                            <li><a href="/#">Contact Sales</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h6>Company</h6>
                         <ul>
-                            <li><a href="/about-fiverr">About Fiverr</a></li>
-                            <li><a href="/help-support">Help & Support</a></li>
-                            <li><a href="/social-impact">Social Impact</a></li>
-                            <li><a href="/careers">Careers</a></li>
-                            <li><a href="/terms-service">Terms of Service</a></li>
-                            <li><a href="/privacy-policy">Privacy Policy</a></li>
-                            <li><a href="/partnerships">Partnerships</a></li>
-                            <li><a href="/creator-network">Creator Network</a></li>
-                            <li><a href="/affiliates">Affiliates</a></li>
-                            <li><a href="/invite-friend">Invite a Friend</a></li>
-                            <li><a href="/press-news">Press & News</a></li>
-                            <li><a href="/investor-relations">Investor Relations</a></li>
+                            <li><a href="/#">About Fiverr</a></li>
+                            <li><a href="/#">Help & Support</a></li>
+                            <li><a href="/#">Social Impact</a></li>
+                            <li><a href="/#">Careers</a></li>
+                            <li><a href="/#">Terms of Service</a></li>
+                            <li><a href="/#">Privacy Policy</a></li>
+                            <li><a href="/#">Partnerships</a></li>
+                            <li><a href="/#">Creator Network</a></li>
+                            <li><a href="/#">Affiliates</a></li>
+                            <li><a href="/#">Invite a Friend</a></li>
+                            <li><a href="/#">Press & News</a></li>
+                            <li><a href="/#">Investor Relations</a></li>
                         </ul>
                     </div>
                 </div>
@@ -216,10 +216,10 @@ interface Currency {
 export default {
     data() {
         return {
-            showLanguageModal: false,  // Controls the visibility of the modal
-            selectedLanguage: 'English',  // Default language
-            languages: ["English", "Deutsch", "Español", "Français", "Português", "Italiano", "Nederlands"], // List of languages
-            showCurrencyModal: false, // Currency modal kontrolü
+            showLanguageModal: false, 
+            selectedLanguage: 'English', 
+            languages: ["English", "Deutsch", "Español", "Français", "Português", "Italiano", "Nederlands"],
+            showCurrencyModal: false,
             selectedCurrency: { symbol: "$", code: "USD", name: "United States Dollar" }, // Varsayılan seçili para birimi
             currencies: [
                 { name: "United States Dollar", symbol: "$", code: "USD" },
@@ -233,12 +233,12 @@ export default {
                 { name: "Malasian Ringgit", symbol: "MYR", code: "MYR" },
                 { name: "Mexican Peso", symbol: "MX$", code: "MXN" },
                 { name: "Pakistani Rupee", symbol: "PKR", code: "PKR" }
-            ] as Currency[], // Currencies list defined with the 'Currency' interface
+            ] as Currency[],
         };
     },
     methods: {
         closeModal() {
-            this.showLanguageModal = false;  // Close modal when clicked outside or on close button
+            this.showLanguageModal = false;  // Kapat düğmesinin dışına veya üzerine tıklandığında modalı kapat
         },
         closeCurrencyModal() {
             this.showCurrencyModal = false; // Modal'ı kapatır
@@ -295,7 +295,6 @@ export default {
     text-decoration: none;
     color: #000;
     display: block;
-    /* Alt alta görünmeleri için */
 }
 
 .fiverr-group .sub-link {
@@ -308,7 +307,6 @@ export default {
 .fiverr-group:hover .main-link,
 .fiverr-group:hover .sub-link {
     text-decoration: underline;
-    /* Hover durumunda ikisinin altını çiz */
 }
 
 /** Font section */
@@ -324,7 +322,6 @@ export default {
 
 .footer-section ul li {
     margin-bottom: 25px;
-    /* Boşluk */
 }
 
 .footer-section ul li a {
@@ -407,7 +404,7 @@ export default {
     color: #74767e;
     font-size: 16px;
     transition: all 0.3s ease;
-    width: 140px;
+    width: auto;
     text-align: left;
     margin-right: 10px;
     border: none;
@@ -525,20 +522,17 @@ export default {
     margin: 10px 0;
     position: relative;
     padding-left: 30px;
-    /* Space for the tick and radio button */
 }
 
 .language-item .tick {
     position: absolute;
     left: 0;
-    /* Position the tick at the far left */
     color: green;
     font-size: 18px;
 }
 
 .language-item .language-text {
     padding-left: 10px;
-    /* Space for the tick to align */
 }
 
 .language-list li label {
@@ -577,7 +571,7 @@ export default {
     background-color: transparent;
     color: #74767e;
     font-size: 16px;
-    width: 120px;
+    width: auto;
     text-align: left;
     border-radius: 50px;
     transition: background-color 0.3s;
@@ -700,6 +694,6 @@ export default {
 }
 
 #footer * {
-    font-family: Macan;
+    font-family: 'Macan';
 }
 </style>

@@ -94,15 +94,10 @@ export default {
 .all-thing {
     display: flex;
     justify-content: center;
-    /* Yatayda ortalar */
     align-items: center;
-    /* Dikeyde ortalar */
     flex-direction: column;
-    /* İçeriği dikeyde düzenler */
     text-align: center;
-    gap: 15px;
-    /* Aralarına mesafe ekler */
-}
+    gap: 15px;}
 
 .text-searchBox {
     width: 100%;
@@ -183,7 +178,6 @@ export default {
     padding: 20px;
     outline: none;
     padding-right: 10px;
-    /* Sağ tarafta ikon için boşluk bırak */
 }
 
 .submitButton {
