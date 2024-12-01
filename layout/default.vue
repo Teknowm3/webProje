@@ -32,7 +32,7 @@ const buttons = [
     "Footer",
     "Header",
     "login-logup",
-    "Component 5",
+    "Vontélle’s go-to services",
     "Component 6",
     "Component 7",
     "Component 8",
@@ -48,6 +48,8 @@ const componentList = [
     defineAsyncComponent(() => import("~/components/homeSearch.vue")),
     defineAsyncComponent(() => import("~/components/footer.vue")),
     defineAsyncComponent(() => import("~/components/header.vue")),
+    defineAsyncComponent(() => import("~/components/sIn.-sUp.vue")),
+    defineAsyncComponent(() => import("~/components/Vontélle’s go-to services.vue")),
 ];
 
 // Aktif componenti hesaplar
@@ -68,12 +70,12 @@ function toggleNavbar() {
     isCollapsed.value = !isCollapsed.value;
 }
 </script>
-
 <style scoped>
 .layout {
     display: flex;
     height: 100vh;
     transition: all 0.3s ease;
+    
 }
 
 .navbar {
@@ -84,6 +86,7 @@ function toggleNavbar() {
     align-items: center;
     padding: 10px;
     transition: width 0.3s ease;
+    z-index: 200000;
 }
 
 .navbar.collapsed {
@@ -122,6 +125,7 @@ function toggleNavbar() {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    
 }
 
 .main-bar {
@@ -149,6 +153,7 @@ function toggleNavbar() {
     border: none;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 200000;
 }
 
 .close-button:hover {
