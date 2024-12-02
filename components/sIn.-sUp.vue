@@ -427,6 +427,11 @@ export default defineComponent({
     width: 100%;
 }
 
+.social-buttons button:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
 .end-of-login {
     height: 240px;
     display: flex;
